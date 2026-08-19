@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Animated Presentation</title>
+    <!-- Modern Typography from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <!-- Background animated gradient -->
+    <div class="background-animation"></div>
+
+    <main class="presentation-container">
+      
+      <!-- Slide 1: Hero -->
+      <section class="slide active" id="slide-1">
+        <div class="glass-panel text-center">
+          <h1 class="hero-title">Welcome to the <span class="text-gradient">Future</span></h1>
+          <p class="subtitle">A stunning animated presentation format built for impact.</p>
+          <div class="pulse-indicator">
+            <span>Press Space or Right Arrow</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: Features with Micro-animations -->
+      <section class="slide right" id="slide-2">
+        <div class="glass-panel">
+          <h2 class="section-title">Rich Aesthetics</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="icon-wrapper">✨</div>
+              <h3>Glassmorphism</h3>
+              <p>Sleek, frosted glass effects that give depth and premium feel to your content.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-wrapper">🎨</div>
+              <h3>Dynamic Gradients</h3>
+              <p>Living, breathing backgrounds that react to the presentation flow.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-wrapper">🚀</div>
+              <h3>Micro-Animations</h3>
+              <p>Subtle hover effects and smooth transitions that keep the audience engaged.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: Showcase -->
+      <section class="slide right" id="slide-3">
+        <div class="glass-panel layout-split">
+          <div class="content-side">
+            <h2 class="section-title">Seamless Transitions</h2>
+            <p class="text-large">
+              Each slide shifts elegantly into view, drawing the viewer's attention to what matters most. Replace this text with your key insights, data points, or storytelling elements.
+            </p>
+          </div>
+          <div class="visual-side">
+            <div class="abstract-shape shape-1"></div>
+            <div class="abstract-shape shape-2"></div>
+            <div class="abstract-shape shape-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Conclusion -->
+      <section class="slide right" id="slide-4">
+        <div class="glass-panel text-center">
+          <h2 class="hero-title">Ready to <span class="text-gradient">Present?</span></h2>
+          <p class="subtitle">Just add your context and you are good to go.</p>
+          <button class="primary-btn" id="restart-btn">Restart Presentation</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Navigation Controls -->
+    <nav class="controls">
+      <button id="prev-btn" class="nav-btn" aria-label="Previous Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">4</span>
+      </div>
+      <button id="next-btn" class="nav-btn" aria-label="Next Slide">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </nav>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
