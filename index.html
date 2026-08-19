@@ -1359,16 +1359,7 @@
       const particleSystem = new THREE.Points(geometry, particleMaterial);
       scene.add(particleSystem);
 
-      // --- 3D Geometric Spine / Wireframe Node ---
-      const torusGeo = new THREE.TorusKnotGeometry(6, 1.8, 120, 16);
-      const torusMat = new THREE.MeshBasicMaterial({
-        color: 0x00f2fe,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.18
-      });
-      const torusKnot = new THREE.Mesh(torusGeo, torusMat);
-      scene.add(torusKnot);
+      // Clean particle background
 
       // Mouse Parallax Targets
       let mouseX = 0, mouseY = 0;
@@ -1388,8 +1379,7 @@
         particleSystem.rotation.y = elapsedTime * 0.04;
         particleSystem.rotation.x = elapsedTime * 0.02;
 
-        torusKnot.rotation.x = elapsedTime * 0.15;
-        torusKnot.rotation.y = elapsedTime * 0.25;
+        
 
         // Smooth Camera Lerp
         camera.position.x += (mouseX * 4 - camera.position.x) * 0.05;
@@ -1479,8 +1469,7 @@
 
         const t = cameraTransforms[current];
         targetCameraZ = t.z;
-        torusMat.opacity = t.opacity;
-        torusMat.color.setHex(t.color);
+        
       }
 
       function goTo(targetIdx) {
