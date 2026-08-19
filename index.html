@@ -3,10 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern Animated Presentation</title>
+    <title>Ergonomics in Everyday Life</title>
     <!-- Modern Typography from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <!-- Inline styles for image support and extended layout -->
+    <style>
+      .image-showcase {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      .feature-card h3 {
+        font-size: 1.25rem;
+        color: var(--accent-color);
+      }
+      .feature-card p {
+        font-size: 0.95rem;
+      }
+      .slide {
+        max-height: 900px; /* Allow a bit more height for content */
+      }
+    </style>
   </head>
   <body>
     <!-- Background animated gradient -->
@@ -17,61 +41,154 @@
       <!-- Slide 1: Hero -->
       <section class="slide active" id="slide-1">
         <div class="glass-panel text-center">
-          <h1 class="hero-title">Welcome to the <span class="text-gradient">Future</span></h1>
-          <p class="subtitle">A stunning animated presentation format built for impact.</p>
+          <h1 class="hero-title">Ergonomics in <br><span class="text-gradient">Everyday Life</span></h1>
+          <p class="subtitle">Find It, Measure It, Fix It.</p>
           <div class="pulse-indicator">
             <span>Press Space or Right Arrow</span>
           </div>
         </div>
       </section>
 
-      <!-- Slide 2: Features with Micro-animations -->
+      <!-- Slide 2: The Reality of Our Routine -->
       <section class="slide right" id="slide-2">
-        <div class="glass-panel">
-          <h2 class="section-title">Rich Aesthetics</h2>
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="icon-wrapper">✨</div>
-              <h3>Glassmorphism</h3>
-              <p>Sleek, frosted glass effects that give depth and premium feel to your content.</p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-wrapper">🎨</div>
-              <h3>Dynamic Gradients</h3>
-              <p>Living, breathing backgrounds that react to the presentation flow.</p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-wrapper">🚀</div>
-              <h3>Micro-Animations</h3>
-              <p>Subtle hover effects and smooth transitions that keep the audience engaged.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 3: Showcase -->
-      <section class="slide right" id="slide-3">
         <div class="glass-panel layout-split">
-          <div class="content-side">
-            <h2 class="section-title">Seamless Transitions</h2>
+          <div class="content-side" style="flex: 1.5;">
+            <h2 class="section-title">The Reality of Our Routine</h2>
+            <p class="text-large" style="margin-bottom: 1.5rem;">
+              Think about your day so far. You woke up, sat at the breakfast table, sat in your car or on the train, arrived at the office—and you sat down.
+            </p>
+            <p class="text-large" style="margin-bottom: 1.5rem; font-weight: 500; color: white;">
+              The staggering reality: The average office worker spends approximately 10 to 12 hours a day sitting down. 
+            </p>
             <p class="text-large">
-              Each slide shifts elegantly into view, drawing the viewer's attention to what matters most. Replace this text with your key insights, data points, or storytelling elements.
+              That is 70-80 hours a week, and over 3,500 hours a year. Over a 40-year career, we are spending nearly <span class="text-gradient" style="font-weight: 700;">16 solid years</span> of our lives parked in a chair. We obsess over our beds, yet rarely question the quality of our office chair. Our bodies were designed to move—not to be folded into a 90-degree angle staring at a screen. We are paying a massive, silent price.
             </p>
           </div>
           <div class="visual-side">
-            <div class="abstract-shape shape-1"></div>
-            <div class="abstract-shape shape-2"></div>
+            <div class="abstract-shape shape-1" style="background: linear-gradient(45deg, #ef4444, #f97316);"></div>
             <div class="abstract-shape shape-3"></div>
           </div>
         </div>
       </section>
 
-      <!-- Slide 4: Conclusion -->
-      <section class="slide right" id="slide-4">
+      <!-- Slide 3: The Physical Impact -->
+      <section class="slide right" id="slide-3">
         <div class="glass-panel text-center">
-          <h2 class="hero-title">Ready to <span class="text-gradient">Present?</span></h2>
-          <p class="subtitle">Just add your context and you are good to go.</p>
-          <button class="primary-btn" id="restart-btn">Restart Presentation</button>
+          <h2 class="section-title text-gradient">The Physical Impact</h2>
+          <p class="subtitle" style="margin: 0 auto 3rem auto;">What sitting does to your body</p>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="icon-wrapper">📉</div>
+              <h3>Muscles Shut Off</h3>
+              <p>Electrical activity in your leg muscles shuts off almost immediately. Calorie burning drops to roughly one per minute.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-wrapper">💥</div>
+              <h3>Spinal Pressure</h3>
+              <p>Sitting puts up to 40% to 90% more pressure on your spinal discs than standing, leading to degeneration and chronic lumbar pain.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-wrapper">🤕</div>
+              <h3>Cervical Strain</h3>
+              <p>Slouching forward just an inch exerts up to 30 pounds of pressure on your cervical spine. Shoulders roll forward; hip flexors shorten.</p>
+            </div>
+          </div>
+          <p class="text-large" style="margin-top: 2rem; font-style: italic;">
+            "We normalize back pain as an occupational hazard. It is not a hazard of the occupation—it is a hazard of the equipment."
+          </p>
+        </div>
+      </section>
+
+      <!-- Slide 4: The Culprit -->
+      <section class="slide right" id="slide-4">
+        <div class="glass-panel layout-split">
+          <div class="visual-side">
+            <div class="abstract-shape shape-2"></div>
+            <div class="abstract-shape shape-1" style="bottom: 10%; right: 20%; top: auto; left: auto;"></div>
+          </div>
+          <div class="content-side" style="flex: 1.5;">
+            <h2 class="section-title">The High Cost of a <span style="color: #ef4444;">Bad Chair</span></h2>
+            <p class="text-large" style="margin-bottom: 1rem;">
+              A poorly designed chair is an active contributor to bodily injury. A standard, rigid office chair forces your spine out of its natural 'S' shape and into an unnatural 'C' shape.
+            </p>
+            <p class="text-large" style="margin-bottom: 1rem;">
+              Without proper lumbar support, lower back muscles work overtime to keep you upright. Eventually, muscles fatigue, you slump, and spinal ligaments bear the load. Lack of adjustable armrests and seat depth cuts off circulation at the back of your thighs.
+            </p>
+            <p class="text-large" style="font-weight: 500;">
+              For companies, this translates to millions of dollars lost in productivity, increased absenteeism, and skyrocketing healthcare costs. We are crippling our workforce by seating them on cheap, poorly engineered furniture.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: The Wakefit Solution -->
+      <section class="slide right" id="slide-5">
+        <div class="glass-panel layout-split">
+          <div class="content-side">
+            <h2 class="section-title">The <span class="text-gradient">Wakefit</span> Solution</h2>
+            <p class="text-large" style="margin-bottom: 1rem;">
+              We can't eliminate sitting from the modern workspace, but we can completely revolutionize the vehicle we sit in.
+            </p>
+            <p class="text-large" style="margin-bottom: 1rem;">
+              Wakefit didn't just build a chair. They engineered a <strong>dynamic support system</strong> designed to move with the human body, not against it.
+            </p>
+            <p class="text-large">
+              Models like the Gravita, Safari, and Albus actively mitigate the damage of prolonged sitting. A Wakefit office chair fundamentally resolves the posture crisis by acting as an <strong>exoskeleton for your spine.</strong>
+            </p>
+          </div>
+          <div class="visual-side">
+            <img src="/chair.jpg" alt="Ergonomic Chair" class="image-showcase">
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Engineering Comfort -->
+      <section class="slide right" id="slide-6">
+        <div class="glass-panel">
+          <h2 class="section-title text-center" style="margin-bottom: 1rem;">Engineering Comfort</h2>
+          <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+            <div class="feature-card" style="padding: 1.5rem;">
+              <h3>1. Biomimetic 'S-Shape' Backrest</h3>
+              <p>Follows the natural curvature of your back. 2D adjustable lumbar support takes the load entirely off your lower back muscles.</p>
+            </div>
+            <div class="feature-card" style="padding: 1.5rem;">
+              <h3>2. High-Density Foam & Waterfall Edge</h3>
+              <p>Injection-molded foam that won't flatten out. A downward sloping front edge dramatically reduces thigh pressure and keeps blood circulating.</p>
+            </div>
+            <div class="feature-card" style="padding: 1.5rem;">
+              <h3>3. Multi-Lock Synchro-Tilt</h3>
+              <p>2-to-1 ratio tilt allows reclining from 90° to 135°. Opens up your hip angle and transfers upper body weight into the backrest.</p>
+            </div>
+            <div class="feature-card" style="padding: 1.5rem;">
+              <h3>4. Multidimensional Adjustability</h3>
+              <p>2D/3D armrests and highly adjustable headrests eliminate 'tech neck' and keep shoulders completely relaxed while typing.</p>
+            </div>
+            <div class="feature-card" style="padding: 1.5rem;">
+              <h3>5. Breathable Mesh</h3>
+              <p>Imported breathable mesh provides optimal tension while allowing continuous air circulation, preventing heat buildup.</p>
+            </div>
+            <div class="feature-card" style="padding: 1.5rem;">
+              <h3>6. Uncompromising Durability</h3>
+              <p>Class 4 Korean gas lifts, heavy-duty bases supporting 120 kg. BIFMA-certified for global standards of strength and safety.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Conclusion -->
+      <section class="slide right" id="slide-7">
+        <div class="glass-panel text-center">
+          <h2 class="section-title">An Investment in <br><span class="text-gradient">Human Capital</span></h2>
+          <p class="text-large" style="max-width: 800px; margin: 0 auto 2rem auto; line-height: 1.8;">
+            We need to reframe how we look at office furniture. A chair is not a decorative piece of the office aesthetic. It is a piece of health equipment. It is a productivity tool.
+          </p>
+          <p class="text-large" style="max-width: 800px; margin: 0 auto 3rem auto; line-height: 1.8; color: white;">
+            When you sit in a Wakefit ergonomic chair, you are no longer fighting gravity. You are supported. Your spine is aligned, your blood is flowing, your shoulders are dropped, and your mind is clear to focus on the work.
+          </p>
+          <p class="subtitle" style="font-weight: 700; color: var(--accent-color);">
+            If we are going to spend 16 years sitting down, we owe it to ourselves to sit in something that sustains us.
+          </p>
+          <button class="primary-btn" id="restart-btn" style="margin-top: 1rem;">Thank You - Restart Presentation</button>
         </div>
       </section>
 
@@ -83,7 +200,7 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
       </button>
       <div class="slide-counter">
-        <span id="current-slide">1</span> / <span id="total-slides">4</span>
+        <span id="current-slide">1</span> / <span id="total-slides">7</span>
       </div>
       <button id="next-btn" class="nav-btn" aria-label="Next Slide">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
