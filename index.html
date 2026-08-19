@@ -1,253 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ergonomics in Everyday Life — Wakefit</title>
-    <meta name="description" content="A powerful pitch on ergonomics: Find It, Measure It, Fix It — featuring Wakefit's ergonomic office chair solutions." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ergonomics in Everyday Life — Wakefit</title>
+  <meta name="description" content="Ergonomics pitch: Find It, Measure It, Fix It — featuring Wakefit office chair solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
 
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progress-bar">
-      <div class="progress-fill" id="progress-fill"></div>
+  <!-- Progress Bar -->
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <!-- Top Nav -->
+  <header class="top-nav" id="top-nav">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <span>Ergonomics</span>
     </div>
-
-    <!-- Slide Counter -->
-    <div class="slide-info">
-      <span id="current-slide">01</span><span class="divider">/</span><span id="total-slides">07</span>
+    <div class="slide-counter">
+      <span id="cur">1</span><span class="slash">/</span><span id="tot">7</span>
     </div>
+    <div class="dot-nav" id="dot-nav"></div>
+  </header>
 
-    <!-- Keyboard hint -->
-    <div class="keyboard-hint" id="keyboard-hint">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      Use ← → Arrow Keys or Spacebar to navigate
-    </div>
+  <!-- Slides -->
+  <main id="deck">
 
-    <main class="slides-wrapper" id="slides-wrapper">
+    <!-- ══ SLIDE 1 · HERO ══ -->
+    <section class="slide" id="s1" data-dark="true">
+      <div class="hero-bg">
+        <img src="/office.jpg" alt="Office workers" class="hero-img" />
+        <div class="hero-dim"></div>
+      </div>
+      <div class="slide-inner centered">
+        <span class="chip anim" data-d="0">Ergonomics Research · 2024</span>
+        <h1 class="hero-h anim" data-d="1">
+          Ergonomics in<br>
+          <em class="teal-em">Everyday Life</em>
+        </h1>
+        <p class="hero-tag anim" data-d="2">Find It &nbsp;·&nbsp; Measure It &nbsp;·&nbsp; <strong>Fix It</strong></p>
+        <div class="process-row anim" data-d="3">
+          <span>Existing Product</span><i class="arrow">→</i>
+          <span>User Requirements</span><i class="arrow">→</i>
+          <span>Anthropometric Data</span><i class="arrow">→</i>
+          <span>Ergonomic Problems</span><i class="arrow">→</i>
+          <span>Quantitative Analysis</span><i class="arrow">→</i>
+          <span>Qualitative Analysis</span><i class="arrow">→</i>
+          <span>Design Parameters</span><i class="arrow">→</i>
+          <span class="highlight-step">Final Recommendation</span>
+        </div>
+        <div class="scroll-cue anim" data-d="4">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          Press <kbd>→</kbd> or <kbd>Space</kbd> to begin
+        </div>
+      </div>
+    </section>
 
-      <!-- ─────────────────────── SLIDE 1 : HERO ─────────────────────── -->
-      <section class="slide" id="slide-1" data-theme="hero">
-        <div class="slide-bg hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="slide-content hero-content">
-          <div class="tag-pill animate-in" data-delay="0">Ergonomics Research Pitch</div>
-          <h1 class="hero-heading animate-in" data-delay="1">
-            Ergonomics in<br>
-            <span class="teal-text">Everyday Life</span>
-          </h1>
-          <p class="hero-sub animate-in" data-delay="2">Find It. Measure It. <strong>Fix It.</strong></p>
-          <div class="hero-process animate-in" data-delay="3">
-            <span class="process-step">Existing Product</span>
-            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            <span class="process-step">User Requirements</span>
-            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            <span class="process-step">Anthropometric Data</span>
-            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            <span class="process-step">Final Recommendation</span>
+    <!-- ══ SLIDE 2 · REALITY ══ -->
+    <section class="slide" id="s2">
+      <div class="slide-inner split">
+        <div class="split-text">
+          <span class="label anim" data-d="0">Chapter 01 — The Problem</span>
+          <h2 class="slide-h anim" data-d="1">The Reality of<br>Our Routine</h2>
+          <p class="body anim" data-d="2">Think about your day. You woke up, sat at breakfast, sat in your car, arrived at the office — and you sat down again.</p>
+          <p class="body anim" data-d="3" style="margin-top:1rem">The human body was designed to <strong>move, hunt and walk for miles</strong>. It was absolutely <em>not</em> designed to be folded into a 90° angle, staring at a screen for 10 hours.</p>
+          <blockquote class="pull-quote anim" data-d="4">"We obsess over beds — yet we never question the chair we sit in for just as long."</blockquote>
+        </div>
+        <div class="split-visual anim" data-d="2">
+          <img src="/office.jpg" alt="Modern office" class="visual-img rounded" />
+          <div class="img-caption">Average office worker · Modern workplace</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SLIDE 3 · STATS ══ -->
+    <section class="slide" id="s3" data-dark="true">
+      <div class="slide-inner centered">
+        <span class="label light anim" data-d="0">Chapter 01 — By the Numbers</span>
+        <h2 class="slide-h light anim" data-d="1">The Numbers<br>Don't Lie</h2>
+        <div class="stats-row anim" data-d="2">
+          <div class="stat-card" tabindex="0" role="button" aria-label="10 to 12 hours daily sitting">
+            <div class="stat-num teal-text" data-target="12">0</div>
+            <div class="stat-unit">hrs / day</div>
+            <div class="stat-desc">Average daily sitting time for office workers</div>
+            <div class="stat-hover-detail">That's more time than you spend sleeping.</div>
           </div>
-          <div class="nav-cue animate-in" data-delay="4">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-            Press Space or Arrow to continue
+          <div class="stat-card featured" tabindex="0" role="button" aria-label="3500 hours per year">
+            <div class="stat-num teal-text" data-target="3500">0</div>
+            <div class="stat-unit">hrs / year</div>
+            <div class="stat-desc">Annual hours spent sitting at a desk</div>
+            <div class="stat-hover-detail">Equivalent to 145 continuous days.</div>
+          </div>
+          <div class="stat-card" tabindex="0" role="button" aria-label="16 years of career">
+            <div class="stat-num teal-text" data-target="16">0</div>
+            <div class="stat-unit">years</div>
+            <div class="stat-desc">Of a 40-year career spent in a chair</div>
+            <div class="stat-hover-detail">More than 3 entire US presidential terms.</div>
           </div>
         </div>
-      </section>
+        <p class="fine-print anim" data-d="3">Hover each card to reveal the full context ↑</p>
+      </div>
+    </section>
 
-      <!-- ─────────────────────── SLIDE 2 : REALITY ─────────────────────── -->
-      <section class="slide" id="slide-2" data-theme="light">
-        <div class="slide-content two-col">
-          <div class="col-text">
-            <div class="section-label animate-in" data-delay="0">Chapter 01</div>
-            <h2 class="section-heading animate-in" data-delay="1">The Reality of Our Routine</h2>
-            <p class="body-text animate-in" data-delay="2">
-              Think about your day. You woke up, sat at breakfast, sat in your car, arrived at the office—and you sat down again.
-            </p>
-            <p class="body-text animate-in" data-delay="3" style="margin-top: 1rem;">
-              Our bodies were designed to move, to hunt, to walk for miles. They were absolutely <em>not</em> designed to be folded into a 90-degree angle, staring at a glowing rectangle for 10 hours a day.
-            </p>
-          </div>
-          <div class="col-stats animate-in" data-delay="2">
-            <div class="big-stat">
-              <span class="stat-number" data-target="12">0</span><span class="stat-unit">hrs</span>
-              <p class="stat-label">Average daily sitting time for an office worker</p>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="big-stat">
-              <span class="stat-number" data-target="3500">0</span><span class="stat-unit">hrs</span>
-              <p class="stat-label">Sitting hours per year</p>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="big-stat">
-              <span class="stat-number teal-text" data-target="16">0</span><span class="stat-unit teal-text">yrs</span>
-              <p class="stat-label">Of a 40-year career spent in a chair</p>
-            </div>
-          </div>
+    <!-- ══ SLIDE 4 · PHYSICAL IMPACT ══ -->
+    <section class="slide" id="s4">
+      <div class="slide-inner split">
+        <div class="split-visual anim" data-d="1">
+          <img src="/bad_posture.jpg" alt="Poor posture at desk" class="visual-img rounded" style="max-height:480px;object-fit:cover;" />
         </div>
-      </section>
+        <div class="split-text">
+          <span class="label anim" data-d="0">Chapter 02 — Physical Damage</span>
+          <h2 class="slide-h anim" data-d="1">What Sitting Does<br>to Your Body</h2>
 
-      <!-- ─────────────────────── SLIDE 3 : PHYSICAL IMPACT ─────────────────────── -->
-      <section class="slide" id="slide-3" data-theme="light">
-        <div class="slide-content">
-          <div class="section-label animate-in" data-delay="0">Chapter 02</div>
-          <h2 class="section-heading animate-in" data-delay="1">What Sitting Does to Your Body</h2>
-          <div class="two-col" style="align-items: center; gap: 4rem; margin-top: 2rem;">
-            <div style="flex: 1.1;">
-              <img src="/spine.jpg" alt="C-Shape vs S-Shape posture comparison" class="slide-image animate-in" data-delay="2" />
-            </div>
-            <div style="flex: 0.9;" class="animate-in" data-delay="3">
-              <div class="impact-item">
-                <div class="impact-icon danger">💀</div>
-                <div>
-                  <strong>40–90% more</strong> spinal disc pressure while sitting vs. standing — causing chronic lumbar pain & degeneration.
-                </div>
+          <!-- Accordion / Interactive impact items -->
+          <div class="accordion anim" data-d="2">
+            <div class="acc-item open">
+              <button class="acc-trigger">
+                <span class="acc-icon">🦴</span> Spinal Disc Pressure
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="acc-body">
+                Sitting puts <strong>40–90% more pressure</strong> on spinal discs than standing. Over time: disc degeneration, chronic lumbar pain, and sciatica.
               </div>
-              <div class="impact-item">
-                <div class="impact-icon danger">🔴</div>
-                <div>
-                  Slouching just 1–2 inches forward forces <strong>up to 30 lbs</strong> of pressure onto your cervical spine.
-                </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <span class="acc-icon">🔴</span> Cervical Spine Strain
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="acc-body">
+                Slouching just 1–2 inches forward exerts <strong>up to 30 lbs</strong> of extra force on your cervical spine. Shoulders roll forward, chest tightens, hip flexors shorten.
               </div>
-              <div class="impact-item">
-                <div class="impact-icon danger">⚡</div>
-                <div>
-                  Leg muscles <strong>shut off almost immediately</strong>. Calorie burn drops to 1 per minute. Blood flow restricts.
-                </div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-trigger">
+                <span class="acc-icon">⚡</span> Muscle Shutdown
+                <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="acc-body">
+                Electrical activity in leg muscles shuts off <strong>almost immediately</strong> when you sit. Calorie burning drops to just 1 per minute. Blood flow restricts, causing swelling.
               </div>
-              <p class="pull-quote animate-in" data-delay="4">"Back pain is not an occupational hazard — it is a hazard of the <em>equipment.</em>"</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- ─────────────────────── SLIDE 4 : CULPRIT ─────────────────────── -->
-      <section class="slide" id="slide-4" data-theme="dark-accent">
-        <div class="slide-content centered">
-          <div class="section-label light animate-in" data-delay="0">Chapter 03</div>
-          <h2 class="section-heading light animate-in" data-delay="1">The High Cost of a Bad Chair</h2>
-          <div class="three-cards animate-in" data-delay="2">
-            <div class="info-card">
-              <div class="card-icon">🦴</div>
-              <h3>Destroys Posture</h3>
-              <p>Forces your spine from its natural <strong>S-shape</strong> into an unnatural <strong>C-shape</strong>, overworking muscles until they fatigue and collapse.</p>
-            </div>
-            <div class="info-card featured">
-              <div class="card-icon">💸</div>
-              <h3>Billion-Dollar Problem</h3>
-              <p>Musculoskeletal disorders cost companies <strong>millions annually</strong> in lost productivity, absenteeism, and healthcare claims.</p>
-            </div>
-            <div class="info-card">
-              <div class="card-icon">🩸</div>
-              <h3>Kills Circulation</h3>
-              <p>No seat depth adjustment + poor armrests = restricted blood flow to thighs and shrugged, tense shoulders all day long.</p>
-            </div>
-          </div>
-          <p class="center-quote animate-in" data-delay="3">
-            "We are crippling our workforce by seating them on <span class="teal-text">cheap, poorly engineered furniture.</span>"
-          </p>
+          <p class="pull-quote anim" data-d="3" style="margin-top:1.5rem">"Back pain is not an occupational hazard — it is a hazard of the <em>equipment.</em>"</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ─────────────────────── SLIDE 5 : WAKEFIT SOLUTION ─────────────────────── -->
-      <section class="slide" id="slide-5" data-theme="light">
-        <div class="slide-content two-col" style="align-items: center;">
-          <div class="col-text" style="flex: 1.1;">
-            <div class="section-label animate-in" data-delay="0">Chapter 04 — The Solution</div>
-            <h2 class="section-heading animate-in" data-delay="1">
-              The <span class="teal-text">Wakefit</span><br>Revolution
-            </h2>
-            <p class="body-text animate-in" data-delay="2">
-              Wakefit didn't just build a chair. They engineered a <strong>dynamic support system</strong> — designed to move with the human body, not against it.
-            </p>
-            <p class="body-text animate-in" data-delay="3" style="margin-top: 1rem;">
-              Featuring the <strong>Gravita</strong>, <strong>Safari</strong>, and <strong>Albus</strong> — each chair acts as an <strong>exoskeleton for your spine</strong>, resolving the posture crisis at its core.
-            </p>
-            <div class="cta-badges animate-in" data-delay="4">
-              <span class="badge teal">BIFMA Certified</span>
-              <span class="badge">3-Year Warranty</span>
-              <span class="badge">Free Part Replacement</span>
+    <!-- ══ SLIDE 5 · THE CULPRIT ══ -->
+    <section class="slide" id="s5" data-dark="true">
+      <div class="slide-inner centered">
+        <span class="label light anim" data-d="0">Chapter 03 — The Culprit</span>
+        <h2 class="slide-h light anim" data-d="1">The High Cost of<br>a <span class="danger-text">Bad Chair</span></h2>
+
+        <div class="comparison-row anim" data-d="2">
+          <div class="compare-card bad">
+            <div class="compare-head">
+              <span class="tag-bad">❌ Bad Chair</span>
             </div>
+            <ul class="compare-list">
+              <li>Forces spine into unnatural <strong>C-shape</strong></li>
+              <li>No lumbar support — muscles fatigue & collapse</li>
+              <li>No seat depth control — cuts thigh circulation</li>
+              <li>No armrest adjustment — shoulders shrug all day</li>
+              <li>Rigid foam flattens within months</li>
+            </ul>
           </div>
-          <div style="flex: 0.9; display: flex; justify-content: center;" class="animate-in" data-delay="2">
-            <img src="/chair_hero.jpg" alt="Wakefit ergonomic office chair" class="chair-image" />
+          <div class="compare-vs">VS</div>
+          <div class="compare-card good">
+            <div class="compare-head">
+              <span class="tag-good">✅ Wakefit Chair</span>
+            </div>
+            <ul class="compare-list">
+              <li>Biomimetic <strong>S-shape</strong> backrest follows your spine</li>
+              <li>2D adjustable lumbar support eliminates back load</li>
+              <li>Waterfall edge seat — keeps blood circulating freely</li>
+              <li>3D adjustable armrests — zero shoulder tension</li>
+              <li>High-density injection-moulded foam, built to last</li>
+            </ul>
           </div>
         </div>
-      </section>
 
-      <!-- ─────────────────────── SLIDE 6 : FEATURES ─────────────────────── -->
-      <section class="slide" id="slide-6" data-theme="light">
-        <div class="slide-content">
-          <div class="section-label animate-in" data-delay="0">Chapter 05 — Engineering Comfort</div>
-          <h2 class="section-heading animate-in" data-delay="1" style="margin-bottom: 2rem;">Six Pillars of Ergonomic Design</h2>
-          <div class="features-six animate-in" data-delay="2">
-            <div class="feat-card">
-              <div class="feat-num teal-text">01</div>
-              <h4>Biomimetic S-Shape Backrest</h4>
-              <p>2D adjustable lumbar support follows your natural spinal curve. Fully unloads your lower back muscles.</p>
+        <p class="center-quote anim" data-d="3">
+          "We are crippling our workforce by seating them on <span class="teal-text">cheap, poorly engineered furniture.</span>"
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ SLIDE 6 · WAKEFIT SOLUTION ══ -->
+    <section class="slide" id="s6">
+      <div class="slide-inner split" style="align-items:center">
+        <div class="split-text">
+          <span class="label anim" data-d="0">Chapter 04 — The Solution</span>
+          <h2 class="slide-h anim" data-d="1">The <span class="teal-text">Wakefit</span><br>Revolution</h2>
+          <p class="body anim" data-d="2">Wakefit engineered a <strong>dynamic support system</strong> — designed to move with the human body, not against it.</p>
+
+          <!-- Interactive Feature Tabs -->
+          <div class="tabs anim" data-d="3">
+            <div class="tab-list" role="tablist">
+              <button class="tab-btn active" role="tab" data-tab="0">S-Shape</button>
+              <button class="tab-btn" role="tab" data-tab="1">Waterfall</button>
+              <button class="tab-btn" role="tab" data-tab="2">Synchro-Tilt</button>
+              <button class="tab-btn" role="tab" data-tab="3">Armrests</button>
+              <button class="tab-btn" role="tab" data-tab="4">Mesh</button>
             </div>
-            <div class="feat-card">
-              <div class="feat-num teal-text">02</div>
-              <h4>Waterfall Seat Edge</h4>
-              <p>High-density foam with a downward slope prevents thigh pressure — keeping blood circulation free and unrestricted.</p>
-            </div>
-            <div class="feat-card">
-              <div class="feat-num teal-text">03</div>
-              <h4>Multi-Lock Synchro-Tilt</h4>
-              <p>2:1 synchronized tilt ratio. Recline freely from 90° to 135° — distributing your weight into the backrest, off your spine.</p>
-            </div>
-            <div class="feat-card">
-              <div class="feat-num teal-text">04</div>
-              <h4>3D Adjustable Armrests</h4>
-              <p>Adjustable height + depth + headrest up to 3 inches of vertical range. Zero shoulder shrug. Zero tech neck.</p>
-            </div>
-            <div class="feat-card">
-              <div class="feat-num teal-text">05</div>
-              <h4>Breathable Mesh</h4>
-              <p>Premium imported mesh provides perfect tension support + continuous airflow — keeping you cool under pressure.</p>
-            </div>
-            <div class="feat-card">
-              <div class="feat-num teal-text">06</div>
-              <h4>Class 4 Korean Gas Lift</h4>
-              <p>Heavy-duty 5-star base supports up to 120 kg. BIFMA certified. Backed by a comprehensive 3-year warranty.</p>
+            <div class="tab-panels">
+              <div class="tab-panel active" data-panel="0">
+                <strong>Biomimetic S-Shape Backrest</strong> — Every Wakefit chair follows the natural curvature of your spine. The 2D adjustable lumbar support dials into the exact hollow of your lower back, taking 100% of the load off your lumbar muscles.
+              </div>
+              <div class="tab-panel" data-panel="1">
+                <strong>Waterfall Seat Edge</strong> — A slight downward slope at the front of the seat dramatically reduces pressure on the back of your thighs, keeping blood circulating freely to your lower extremities all day long.
+              </div>
+              <div class="tab-panel" data-panel="2">
+                <strong>Multi-Lock Synchro-Tilt</strong> — The backrest and seat tilt at a synchronized 2:1 ratio. Recline freely from 90° to 135° and lock in multiple positions. Your spine decompresses; your hip angle opens.
+              </div>
+              <div class="tab-panel" data-panel="3">
+                <strong>3D Adjustable Armrests</strong> — Adjust height, depth, and width. PU-padded rests combined with a headrest offering 3 inches of vertical range eliminate tech neck and shoulder shrug completely.
+              </div>
+              <div class="tab-panel" data-panel="4">
+                <strong>Breathable Imported Mesh</strong> — Provides optimal tension support while allowing continuous airflow. No heat build-up during long, high-pressure workdays. Backed by BIFMA certification and a 3-year warranty.
+              </div>
             </div>
           </div>
+
+          <div class="badge-row anim" data-d="4">
+            <span class="badge teal">BIFMA Certified</span>
+            <span class="badge">3-Year Warranty</span>
+            <span class="badge">Supports 120 kg</span>
+            <span class="badge">Korean Class-4 Lift</span>
+          </div>
         </div>
-      </section>
-
-      <!-- ─────────────────────── SLIDE 7 : CONCLUSION ─────────────────────── -->
-      <section class="slide" id="slide-7" data-theme="hero">
-        <div class="slide-bg hero-bg" style="opacity: 0.15;"></div>
-        <div class="slide-content centered">
-          <div class="section-label light animate-in" data-delay="0">Conclusion</div>
-          <h2 class="section-heading light big animate-in" data-delay="1">
-            An Investment in<br><span class="teal-text">Human Capital</span>
-          </h2>
-          <p class="conclusion-text animate-in" data-delay="2">
-            A chair is not a decorative piece. It is a piece of <strong>health equipment</strong>. It is a <strong>productivity tool</strong>.
-          </p>
-          <p class="conclusion-text animate-in" data-delay="3" style="margin-top: 1rem;">
-            If we are going to spend <strong>16 years of our lives</strong> sitting down — we owe it to ourselves, our bodies, and our teams to sit in something that <span class="teal-text"><strong>sustains us rather than breaks us.</strong></span>
-          </p>
-          <button class="restart-btn animate-in" data-delay="4" id="restart-btn">↩ Restart Presentation</button>
-          <p class="thank-you animate-in" data-delay="5">Thank you.</p>
+        <div class="split-visual anim" data-d="2" style="flex:0.85">
+          <img src="/chair_hero.jpg" alt="Wakefit ergonomic chair" class="chair-showcase" />
         </div>
-      </section>
+      </div>
+    </section>
 
-    </main>
+    <!-- ══ SLIDE 7 · CONCLUSION ══ -->
+    <section class="slide" id="s7" data-dark="true">
+      <div class="hero-bg">
+        <img src="/chair_hero.jpg" alt="" class="hero-img" style="object-position:center;filter:blur(2px) brightness(0.2);transform:scale(1.05)" />
+      </div>
+      <div class="slide-inner centered">
+        <span class="label light anim" data-d="0">Conclusion</span>
+        <h2 class="slide-h light big anim" data-d="1">
+          An Investment in<br><span class="teal-text">Human Capital</span>
+        </h2>
+        <p class="conclusion-body anim" data-d="2">
+          A chair is not a decorative piece. It is a piece of <strong>health equipment.</strong> It is a <strong>productivity tool.</strong>
+        </p>
+        <p class="conclusion-body anim" data-d="3">
+          When you sit in a Wakefit ergonomic chair, you are no longer fighting gravity. Your spine is aligned, blood is flowing, shoulders are dropped, and your mind is clear to <span class="teal-text"><strong>focus on the work — not the ache.</strong></span>
+        </p>
+        <div class="final-stat-row anim" data-d="4">
+          <div class="final-stat">
+            <div class="f-num">16</div>
+            <div class="f-label">Years sitting in a career</div>
+          </div>
+          <div class="final-stat-arrow">→</div>
+          <div class="final-stat teal-border">
+            <div class="f-num teal-text">0</div>
+            <div class="f-label">Compromises with Wakefit</div>
+          </div>
+        </div>
+        <button class="restart-cta anim" data-d="5" id="restart-btn">↩ Restart Presentation</button>
+        <p class="ty anim" data-d="6">Thank you.</p>
+      </div>
+    </section>
 
-    <!-- Arrow Nav Buttons -->
-    <div class="nav-arrows">
-      <button class="nav-btn" id="prev-btn" aria-label="Previous slide">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="nav-btn" id="next-btn" aria-label="Next slide">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-    </div>
+  </main>
 
-    <script src="./main.js" type="module"></script>
-  </body>
+  <!-- Left / Right Nav Arrows -->
+  <button class="nav-arrow left" id="prev-btn" aria-label="Previous slide" disabled>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="nav-arrow right" id="next-btn" aria-label="Next slide">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <script src="./main.js" type="module"></script>
+</body>
 </html>
