@@ -1,173 +1,155 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const slides   = Array.from(document.querySelectorAll('.slide'));
-  const prevBtn  = document.getElementById('prev-btn');
-  const nextBtn  = document.getElementById('next-btn');
-  const restartBtn = document.getElementById('restart-btn');
-  const progFill = document.getElementById('progress-fill');
-  const curEl    = document.getElementById('cur');
-  const totEl    = document.getElementById('tot');
-  const topNav   = document.getElementById('top-nav');
-  const dotNav   = document.getElementById('dot-nav');
-  const deck     = document.getElementById('deck');
+  const slides    = Array.from(document.querySelectorAll('.slide'));
+  const prevBtn   = document.getElementById('prev-btn');
+  const nextBtn   = document.getElementById('next-btn');
+  const restartBtn= document.getElementById('restart-btn');
+  const progFill  = document.getElementById('progress-fill');
+  const curEl     = document.getElementById('cur');
+  const topNav    = document.getElementById('top-nav');
+  const dotNav    = document.getElementById('dot-nav');
+  const body      = document.body;
 
-  const TOTAL    = slides.length;
-  let current    = 0;
-  let isAnimating = false;
+  const TOTAL = slides.length;
+  let current = 0;
+  let busy    = false;
 
-  totEl.textContent = TOTAL;
-
-  /* ─────────── Build dot nav ─────────── */
+  /* ─── Build dot indicators ─── */
   slides.forEach((_, i) => {
     const d = document.createElement('div');
     d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.setAttribute('aria-label', `Go to slide ${i + 1}`);
     d.setAttribute('role', 'button');
+    d.setAttribute('aria-label', `Slide ${i + 1}`);
     d.setAttribute('tabindex', '0');
     d.addEventListener('click', () => goTo(i));
     d.addEventListener('keydown', e => e.key === 'Enter' && goTo(i));
     dotNav.appendChild(d);
   });
 
-  /* ─────────── Counter animation ─────────── */
+  /* ─── Animated counter ─── */
   function animCounter(el) {
-    if (el.dataset.animated) return;
-    el.dataset.animated = '1';
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
     const target = parseInt(el.dataset.target, 10);
-    const dur = 1400;
-    const start = performance.now();
-    function tick(now) {
-      const p = Math.min((now - start) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
+    const dur = 1500;
+    const t0 = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 4); // ease-out-quart
       el.textContent = Math.round(e * target).toLocaleString();
       if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+    })(performance.now());
   }
 
-  /* ─────────── Stagger animate-in elements ─────────── */
+  /* ─── Stagger-in animations on a slide ─── */
   function triggerAnims(slideEl) {
-    // Reset
     slideEl.querySelectorAll('.anim').forEach(el => el.classList.remove('in'));
+    slideEl.querySelectorAll('[data-target]').forEach(el => delete el.dataset.done);
 
-    requestAnimationFrame(() => {
+    // small delay so slide is visible first
+    setTimeout(() => {
       slideEl.querySelectorAll('.anim').forEach(el => {
-        const delay = (parseFloat(el.dataset.d || 0)) * 110 + 60;
+        const delay = (parseFloat(el.dataset.d || 0)) * 110 + 50;
         setTimeout(() => el.classList.add('in'), delay);
       });
-    });
+    }, 80);
 
-    // Counters
     setTimeout(() => {
       slideEl.querySelectorAll('[data-target]').forEach(el => animCounter(el));
-    }, 400);
+    }, 450);
   }
 
-  /* ─────────── Update UI chrome ─────────── */
+  /* ─── Chrome update ─── */
   function updateChrome() {
-    // Counter
     curEl.textContent = current + 1;
-
-    // Progress
     progFill.style.width = (current / (TOTAL - 1) * 100) + '%';
+    prevBtn.disabled = (current === 0);
+    nextBtn.disabled = (current === TOTAL - 1);
 
-    // Buttons
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === TOTAL - 1;
+    dotNav.querySelectorAll('.dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current));
 
-    // Dot nav
-    dotNav.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
-
-    // Dark mode nav
     const isDark = slides[current].dataset.dark === 'true';
     topNav.classList.toggle('dark', isDark);
-    deck.classList.toggle('dark-nav', isDark);
+    body.classList.toggle('dark-arrows', isDark);
   }
 
-  /* ─────────── Core goTo ─────────── */
+  /* ─── CORE NAVIGATION — z-index fade, NO transform conflict ─── */
   function goTo(idx) {
-    if (idx < 0 || idx >= TOTAL || idx === current || isAnimating) return;
+    if (idx === current || idx < 0 || idx >= TOTAL || busy) return;
+    busy = true;
 
-    isAnimating = true;
-    const outSlide = slides[current];
-    const inSlide  = slides[idx];
+    const out = slides[current];
+    const inn = slides[idx];
 
-    // Simply fade out → fade in (no transform fight)
-    outSlide.classList.remove('active');
+    // Step 1: mark outgoing as "prev" (keeps it visible at z:5 while fading)
+    out.classList.remove('active');
+    out.classList.add('prev');
 
-    // Small pause so out-fade is visible before in-fade
+    // Step 2: bring incoming to top and fade it in
+    inn.classList.add('active');
+
+    // Step 3: after transition, clean up prev
     setTimeout(() => {
-      inSlide.classList.add('active');
-      triggerAnims(inSlide);
-      isAnimating = false;
-    }, 180); // wait 180ms for fade-out
+      out.classList.remove('prev');
+      busy = false;
+    }, 600); // match CSS transition duration
 
     current = idx;
     updateChrome();
+    triggerAnims(inn);
   }
 
-  /* ─────────── Initialise ─────────── */
+  /* ─── Init ─── */
   slides[0].classList.add('active');
   updateChrome();
   triggerAnims(slides[0]);
 
-  /* ─────────── Button listeners ─────────── */
+  /* ─── Button listeners ─── */
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
   if (restartBtn) restartBtn.addEventListener('click', () => goTo(0));
 
-  /* ─────────── Keyboard ─────────── */
+  /* ─── Keyboard ─── */
   document.addEventListener('keydown', e => {
-    if (e.target.matches('input,textarea,button,select')) return;
+    if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
     if (e.key === 'ArrowLeft')                   { e.preventDefault(); goTo(current - 1); }
   });
 
-  /* ─────────── Touch swipe ─────────── */
-  let touchX = 0;
-  document.addEventListener('touchstart', e => { touchX = e.changedTouches[0].screenX; }, { passive: true });
+  /* ─── Touch swipe ─── */
+  let tx = 0;
+  document.addEventListener('touchstart', e => { tx = e.changedTouches[0].screenX; }, { passive: true });
   document.addEventListener('touchend',   e => {
-    const diff = touchX - e.changedTouches[0].screenX;
-    if (Math.abs(diff) > 60) goTo(diff > 0 ? current + 1 : current - 1);
+    const d = tx - e.changedTouches[0].screenX;
+    if (Math.abs(d) > 55) goTo(d > 0 ? current + 1 : current - 1);
   });
 
-  /* ═══════════════ INTERACTIVE COMPONENTS ═══════════════ */
+  /* ═══════ INTERACTIVE COMPONENTS ═══════ */
 
-  /* ─── Accordion ─── */
-  document.querySelectorAll('.acc-trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const item = trigger.closest('.acc-item');
+  /* ── Accordion ── */
+  document.querySelectorAll('.acc-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.acc-item');
+      const isOpen = item.classList.contains('open');
       // Close all
-      document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
-      // Open clicked (toggle)
-      if (item !== document.querySelector('.acc-item.open')) item.classList.add('open');
-      // Re-evaluate
-      const isOpen = item.classList.contains('open') ||
-        [...document.querySelectorAll('.acc-item')].every(i => !i.classList.contains('open'));
-      if (!item.classList.contains('open') && isOpen) item.classList.add('open');
+      document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
+      // Open this if it wasn't open
+      if (!isOpen) item.classList.add('open');
     });
   });
-  // Open first accordion item by default
+  // Start first open
   const firstAcc = document.querySelector('.acc-item');
   if (firstAcc) firstAcc.classList.add('open');
 
-  /* ─── Feature Tabs ─── */
+  /* ── Tabs ── */
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      const panelIdx = btn.dataset.tab;
-      const container = btn.closest('.tabs');
-
-      container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-
+      const idx    = btn.dataset.tab;
+      const root   = btn.closest('.tabs');
+      root.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      root.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      container.querySelector(`.tab-panel[data-panel="${panelIdx}"]`).classList.add('active');
-    });
-  });
-
-  /* ─── Stat cards: keyboard hover reveal ─── */
-  document.querySelectorAll('.stat-card').forEach(card => {
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter') card.classList.toggle('focused');
+      root.querySelector(`.tab-panel[data-panel="${idx}"]`).classList.add('active');
     });
   });
 });
